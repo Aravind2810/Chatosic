@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:chatosic/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -19,7 +20,8 @@ class _ChatpageState extends State<Chatpage> {
 
   static get name => null;
 
-  List<dynamic>users=[];
+  // List<dynamic>users=[];
+  List<User> users = [];
 
   @override
   Widget build(BuildContext context) {
@@ -40,36 +42,60 @@ class _ChatpageState extends State<Chatpage> {
         actions: [
         ],
       ),
-      body: ListView.builder(
-        itemCount: users.length,
-        itemBuilder: (context, index){
-          final user = users[index];
-          final email = user['email'];
-          final name = user['name']['first'];
-          final imageUrl = user['picture']['thumbnail'];
-          return ListTile(
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image.network(
-                  imageUrl
-              ),
-            ),
-            subtitle: Text(
-              email,
-            ),
-          title: Text(
-          name,
-          ),
-          );
-        },
 
+      body: SingleChildScrollView(
+        child: ListView.builder(
+          itemCount: users.length,
+          itemBuilder: (context, index){
+
+            //Video 1 api call method
+
+            // final user = users[index];
+            // final email = user['email'];
+            // final name = user['name']['first'];
+            // final imageUrl = user['picture']['thumbnail'];
+
+            //Video 2 api call method
+
+            final user = users[index];
+            // final name = user.name;
+            final email = user.email;
+            final color = user.gender == 'male' ? Colors.blueGrey : Colors.grey;
+
+            return ListTile(
+
+              // Video 1 api call method
+
+              // leading: ClipRRect(
+              //   borderRadius: BorderRadius.circular(100),
+              //   child: Image.network(
+              //       imageUrl
+              //   ),
+              // ),
+
+              //Video 2 api call method
+
+              subtitle: Text(
+                email,
+              ),
+
+              tileColor: color,
+              title: Text(
+                user.name,
+              ),
+
+            );
+          },
+        ),
       ),
+
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
-          elevation:20.0,
-          onPressed: fetchUsers,
+        elevation:20.0,
+        onPressed: fetchUsers,
         child: Icon(
-            Icons.add_comment_rounded,
+          Icons.add_comment_rounded,
           size: 25,
         ),
       ),
@@ -83,9 +109,51 @@ class _ChatpageState extends State<Chatpage> {
     final response = await http.get(uri);
     final body = response.body;
     final json = jsonDecode(body);
+
+    //Video 2 api call method
+
+    final results = json['results'] as List<dynamic>;
+
+    //Video 2 api call method 2
+
+    final transformed = results.map((e){
+
+      final name = UserName(
+          title: e['name']['title'],
+          first: e['name']['first'],
+          last: e['name']['last'],
+      );
+
+          return User(
+              // name: e['name'],
+
+            email: e['email'],
+            gender: e['gender'],
+            name: 'name',
+          );
+        }).toList();
+
     setState(() {
-      users = json['results'];
+
+      //Video 1 api call method
+
+      // users = json['results'];
+
+      //Video 2 api call method 1
+
+      users = results.map((e){
+        return User(name: '', email: '', gender: '');
+      }
+      ).toList();
+
+      //Video 2 api call method 2
+
+      users = transformed;
+
     });
+
+
+
     print("Fetch Users Completed");
   }
 

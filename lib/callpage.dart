@@ -221,8 +221,10 @@ class _CallpageState extends State<Callpage> {
                       Icon(
                         Icons.call,
                       ),
-                      backgroundColor: Colors.lightGreen,
+                      backgroundColor: Colors.black12,
                     ),
+
+
 
                     floatingActionButton: FloatingActionButton(
                       onPressed: () async {
@@ -245,8 +247,76 @@ class _CallpageState extends State<Callpage> {
                       child: Column(
                         children: [
 
+                          Container(
+                            width: double.infinity,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              border: Border(
+                                bottom: BorderSide(
+                                    color: Colors.grey
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+
+
+                                Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                  child: IconButton(icon: const Icon(
+                                    Icons.search,
+                                    size: 25,
+                                  ),
+                                    onPressed: (){
+                                      Navigator.pushNamed(context, "welcome2_page");
+                                    },
+                                  ),
+                                ),
+
+
+                                Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                  child: IconButton(icon: const Icon(
+                                    Icons.chat,
+                                    size: 25,
+                                  ),
+                                    onPressed: (){
+                                      Navigator.pushNamed(context, "chat_page");
+                                    },
+                                  ),
+                                ),
+
+
+                                Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                  child: IconButton(icon: const Icon(
+                                    Icons.my_library_music,
+                                    size: 25,
+                                  ),
+                                    onPressed: (){
+                                      Navigator.pushNamed(context, "music_page");
+                                    },
+                                  ),
+                                ),
+
+
+
+                                Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                                  child: IconButton(icon: const Icon(
+                                    Icons.call,
+                                    size: 25,
+                                  ),
+                                    onPressed: (){
+                                      Navigator.pushNamed(context, "call_page");
+                                    },
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+
                         ],
                       ),
+
                     ),
                   ),
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Welcome2page extends StatefulWidget {
   const Welcome2page({super.key, this.name});
@@ -127,8 +128,6 @@ class _Welcome2pageState extends State<Welcome2page> {
               //     print('Selected: $value');
               //   },
               // ),
-
-            elevation: 15.0,
           ),
 
 
@@ -148,11 +147,26 @@ class _Welcome2pageState extends State<Welcome2page> {
             decoration: BoxDecoration(
               color: Colors.black12,
               border: Border(
-                  bottom: BorderSide(color: Colors.grey),
+                  bottom: BorderSide(
+                      color: Colors.grey
+                  ),
               ),
             ),
             child: Row(
               children: [
+
+
+                Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                  child: IconButton(icon: const Icon(
+                    Icons.search,
+                    size: 25,
+                  ),
+                    onPressed: (){
+                      Navigator.pushNamed(context, "home_page");
+                    },
+                  ),
+                ),
+
 
                 Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                   child: IconButton(icon: const Icon(
@@ -173,18 +187,6 @@ class _Welcome2pageState extends State<Welcome2page> {
                   ),
                     onPressed: (){
                       Navigator.pushNamed(context, "music_page");
-                    },
-                  ),
-                ),
-
-
-                Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                  child: IconButton(icon: const Icon(
-                    Icons.search,
-                    size: 25,
-                  ),
-                    onPressed: (){
-                      Navigator.pushNamed(context, "search");
                     },
                   ),
                 ),
@@ -263,45 +265,56 @@ class _Welcome2pageState extends State<Welcome2page> {
           //   ],
           // ),
 
-          Padding(padding: const EdgeInsets.fromLTRB(30, 20, 30, 40),
-            child: Column(
-              children: [
-                Container(
-                  width: 280,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.black12,
-                    borderRadius: BorderRadius.circular(10),
-                    border: const Border(bottom: BorderSide(color: Color.fromRGBO(143, 148, 251, 1))),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 3,
-                        blurRadius: 5,
-                        offset: const Offset(0, 5),
-                      ),
-                    ],
-                  ),
-                  padding: const EdgeInsets.all(5.10),
-                  child: Image.network(
-                    "https://as1.ftcdn.net/v2/jpg/01/76/98/40/1000_F_176984023_8I82qQPmKn8TqNAZXIYMCSiwccoUiPBg.jpg",
-                  ),
-                ),
-              ],
+          Card(
+            shape: BeveledRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
+            color: Colors.black12,
           ),
 
-          const Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 20, 10),
-            child: Text(
-              'Welcome!!!',
-              style: TextStyle(
-                fontSize: 30,
-                fontFamily: 'KaushanScript',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+
+          // Padding(padding: const EdgeInsets.fromLTRB(30, 20, 30, 40),
+          //   child: Column(
+          //     children: [
+          //       Container(
+          //         width: 280,
+          //         height: 200,
+          //         decoration: BoxDecoration(
+          //           color: Colors.black12,
+          //           borderRadius: BorderRadius.circular(10),
+          //           border: const Border(bottom: BorderSide(color: Color.fromRGBO(143, 148, 251, 1))),
+          //           boxShadow: [
+          //             BoxShadow(
+          //               color: Colors.grey.withOpacity(0.5),
+          //               spreadRadius: 3,
+          //               blurRadius: 5,
+          //               offset: const Offset(0, 5),
+          //             ),
+          //           ],
+          //         ),
+          //         padding: const EdgeInsets.all(5.10),
+          //         child: Image.network(
+          //           "https://as1.ftcdn.net/v2/jpg/01/76/98/40/1000_F_176984023_8I82qQPmKn8TqNAZXIYMCSiwccoUiPBg.jpg",
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+
+
+
+
+          // const Padding(
+          //   padding: EdgeInsets.fromLTRB(30, 0, 20, 10),
+          //   child: Text(
+          //     'Welcome!!!',
+          //     style: TextStyle(
+          //       fontSize: 30,
+          //       fontFamily: 'KaushanScript',
+          //       fontWeight: FontWeight.bold,
+          //     ),
+          //   ),
+          // ),
 
 
           // OutlinedButton(
