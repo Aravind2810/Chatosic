@@ -11,6 +11,11 @@ import 'package:chatosic/notificationpage.dart';
 import 'package:chatosic/musicpage.dart';
 import 'package:chatosic/chatpage.dart';
 
+import 'package:chatosic/welcome1page/call1page.dart';
+import 'package:chatosic/welcome1page/chat1page.dart';
+import 'package:chatosic/welcome1page/music1page.dart';
+import 'package:go_router/go_router.dart';
+
 
 void main() {
   var app = MaterialApp(
@@ -27,9 +32,18 @@ void main() {
       'music_page':(context) => const Musicpage(),
       'chat_page':(context) => const Chatpage(),
 
+      'call1_page':(context) => const Call1page(),
+      'chat1_page':(context) => const Chat1page(),
+      'music1_page':(context) => const Music1page(),
+
       'store_page':(context) => const Storepage(),
 
     },
+    home: MaterialApp.router(
+      routerConfig: GoRouter(
+          routes:
+      ),
+    ),
   );
   runApp(app);
 }
@@ -41,7 +55,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: ,
     );
   }
 }

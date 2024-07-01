@@ -22,8 +22,8 @@ class _Welcome1pageState extends State<Welcome1page> {
               "Chatosic",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
-                fontFamily: "GreatVibes",
+                fontSize: 25,
+                fontFamily: "Italianno",
               ),
             ),
             centerTitle: false,
@@ -87,7 +87,11 @@ class _Welcome1pageState extends State<Welcome1page> {
             height: 50,
             decoration: BoxDecoration(
               color: Colors.black12,
-              border: Border(bottom: BorderSide(color: Colors.grey)),
+              border: Border(
+                  bottom: BorderSide(
+                      color: Colors.grey,
+                  ),
+              ),
             ),
             child: Row(
               children: [
@@ -127,97 +131,54 @@ class _Welcome1pageState extends State<Welcome1page> {
                 //   ),
                 // ),
 
-                // Container(
-                //   padding: const EdgeInsets.all(10.10),
-                //   child:
 
-                  Padding(padding: EdgeInsets.symmetric(horizontal: 35,vertical: 10),
-                    child: Icon(
-                        Icons.chat,
-                    ),
 
-                    // child: IconButton(icon: const Icon(
-                    //   Icons.home_max_rounded,
-                    // ),
-                    //   onPressed: (){
-                    //     Navigator.pushNamed(context, "home_page");
-                    //   },
-                    // ),
+                Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                  child: IconButton(icon: const Icon(
+                    Icons.search,
+                    size: 25,
                   ),
-                // ),
-
-
-                // Container(
-                //   decoration: const BoxDecoration(
-                //     color: Colors.black12,
-                //     border: Border(bottom: BorderSide(color: Colors.grey)),
-                //   ),
-                //   padding: const EdgeInsets.all(5.10),
-                //   child:
-
-                  Padding(padding: EdgeInsets.symmetric(horizontal: 35,vertical: 10),
-                    child: Icon(
-                        Icons.my_library_music,
-                    ),
-
-                    // child: IconButton(icon: const Icon(
-                    //   Icons.my_library_music,
-                    //   size: 25,
-                    // ),
-                    //   onPressed: (){
-                    //     Navigator.pushNamed(context, "music_page");
-                    //   },
-                    // ),
+                    onPressed: (){
+                      Navigator.pushNamed(context, "home_page");
+                    },
                   ),
-                // ),
+                ),
 
 
-                // Container(
-                //   decoration: const BoxDecoration(
-                //     color: Colors.black12,
-                //     border: Border(bottom: BorderSide(color: Colors.grey)),
-                //   ),
-                //   padding: const EdgeInsets.all(5.10),
-                //   child:
 
-                  Padding(padding: EdgeInsets.symmetric(horizontal: 30,vertical: 10),
-                    child: Icon(
-                      Icons.search,
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                    child: IconButton(icon: const Icon(
+                      Icons.chat,
+                      size: 25,
                     ),
-
-                    // child: IconButton(icon: const Icon(
-                    //   Icons.search,
-                    //   size: 25,
-                    // ),
-                    //   onPressed: (){
-                    //     Navigator.pushNamed(context, "search");
-                    //   },
-                    // ),
+                      onPressed: (){
+                        Navigator.pushNamed(context, "chat1_page");
+                      },
+                    ),
                   ),
-                // ),
 
 
-                // Container(
-                //   decoration: const BoxDecoration(
-                //     color: Colors.black12,
-                //     border: Border(bottom: BorderSide(color: Colors.grey)),
-                //   ),
-                //   padding: const EdgeInsets.all(5.10),
-                //   child:
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                    child: IconButton(icon: const Icon(
+                      Icons.my_library_music,
+                      size: 25,
+                    ),
+                      onPressed: (){
+                        Navigator.pushNamed(context, "music1_page");
+                      },
+                    ),
+                  ),
 
-                  Padding(padding: EdgeInsets.symmetric(horizontal: 30,vertical: 10),
-                    child: Icon(
+
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                    child: IconButton(icon: const Icon(
                       Icons.call,
+                      size: 25,
                     ),
-
-                    // child: IconButton(icon: const Icon(
-                    //   Icons.call,
-                    //   size: 25,
-                    // ),
-                    //   onPressed: (){
-                    //     Navigator.pushNamed(context, "call_page");
-                    //   },
-                    // ),
+                      onPressed: (){
+                        Navigator.pushNamed(context, "call1_page");
+                      },
+                    ),
                   ),
                 // ),
               ],

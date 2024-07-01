@@ -1,4 +1,5 @@
 import 'package:chatosic/chatpage.dart';
+import 'package:chatosic/musicpage.dart';
 import 'package:chatosic/welcome2page.dart';
 import 'package:flutter/material.dart';
 
@@ -335,13 +336,13 @@ class _LoginViewState extends State<LoginView> {
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(
-                    //     builder: (context)=> Chatpage(
-                    //       name: _username.text,
-                    //     ),
-                    //   ),
-                    // );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context)=> Musicpage(
+                          name: _username.text,
+                        ),
+                      ),
+                    );
                     Navigator.of(context).push(
                       MaterialPageRoute(
                           builder: (context)=> Welcome2page(
