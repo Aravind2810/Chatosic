@@ -425,9 +425,6 @@ class _MusicpageState extends State<Musicpage> {
 
                                     ],
                                   ),
-
-
-
                                 ),
                               ),
                             ],
@@ -437,7 +434,6 @@ class _MusicpageState extends State<Musicpage> {
                     ),
                   ),
                 ),
-
               );
             }
         )

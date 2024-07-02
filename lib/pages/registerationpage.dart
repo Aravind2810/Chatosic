@@ -1,5 +1,5 @@
-import 'package:chatosic/chatpage.dart';
-import 'package:chatosic/welcome2page.dart';
+import 'package:chatosic/pages/chatpage.dart';
+import 'package:chatosic/pages/welcome2page.dart';
 import 'package:flutter/material.dart';
 
 class Registerationpage extends StatefulWidget {

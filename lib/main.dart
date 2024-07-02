@@ -1,20 +1,20 @@
-import 'package:chatosic/store_page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:chatosic/loginpage.dart';
-import 'package:chatosic/loginview.dart';
-import 'package:chatosic/welcome1page.dart';
-import 'package:chatosic/welcome2page.dart';
-import 'package:chatosic/registerationpage.dart';
-import 'package:chatosic/callpage.dart';
-import 'package:chatosic/notificationpage.dart';
-import 'package:chatosic/musicpage.dart';
-import 'package:chatosic/chatpage.dart';
 
+import 'package:chatosic/pages/callpage.dart';
+import 'package:chatosic/pages/loginpage.dart';
+import 'package:chatosic/pages/loginview.dart';
+import 'package:chatosic/pages/musicpage.dart';
+import 'package:chatosic/pages/notificationpage.dart';
+import 'package:chatosic/pages/registerationpage.dart';
+import 'package:chatosic/pages/welcome1page.dart';
+import 'package:chatosic/pages/welcome2page.dart';
+import 'package:chatosic/store_page.dart';
+import 'package:chatosic/pages/chatpage.dart';
 import 'package:chatosic/welcome1page/call1page.dart';
 import 'package:chatosic/welcome1page/chat1page.dart';
 import 'package:chatosic/welcome1page/music1page.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
 
 
 void main() {
@@ -39,11 +39,11 @@ void main() {
       'store_page':(context) => const Storepage(),
 
     },
-    home: MaterialApp.router(
-      routerConfig: GoRouter(
-          routes:
-      ),
-    ),
+    // home: MaterialApp.router(
+    //   routerConfig: GoRouter(
+    //       routes:
+    //   ),
+    // ),
   );
   runApp(app);
 }
