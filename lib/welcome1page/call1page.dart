@@ -34,7 +34,7 @@ class _Call1pageState extends State<Call1page> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SpinKitFadingCircle(
+              SpinKitCircle(
                 color: Colors.black,
                 size: 50,
               ),

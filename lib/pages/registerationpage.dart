@@ -1,4 +1,3 @@
-import 'package:chatosic/pages/chatpage.dart';
 import 'package:chatosic/pages/welcome2page.dart';
 import 'package:flutter/material.dart';
 
@@ -495,13 +494,6 @@ class _RegisterationpageState extends State<Registerationpage> {
                 child: TextButton(
                   onPressed: () {
                     //Click operation
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(
-                    //     builder: (context)=> Chatpage(
-                    //       name: _username.text,
-                    //     ),
-                    //   ),
-                    // );
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context)=> Welcome2page(

@@ -1,6 +1,5 @@
-import 'package:chatosic/pages/chatpage.dart';
-import 'package:chatosic/pages/musicpage.dart';
 import 'package:chatosic/pages/welcome2page.dart';
+import 'package:chatosic/pages/loginview.dart';
 import 'package:flutter/material.dart';
 
 
@@ -50,6 +49,7 @@ class _LoginViewState extends State<LoginView> {
           centerTitle: true,
           automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
+
           // actions: const [
           //   Icon(Icons.more_vert),
           //   // IconButton(icon: const Icon(Icons.home_max_rounded),
@@ -89,39 +89,60 @@ class _LoginViewState extends State<LoginView> {
                   children: [
 
 
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          child:Container(
-                            width: 70,
-                            height: 80,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/no_profile.png"),
-                                fit: BoxFit.cover,
+                    Card(
+                      elevation: 10.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      borderOnForeground: true,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            child:Container(
+                              width: 70,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border(
+                                  top: BorderSide(
+                                    color: Colors.brown
+                                  ),
+                                  bottom: BorderSide(
+                                      color: Colors.brown
+                                  ),
+                                  // left: BorderSide(
+                                  //     color: Colors.brown
+                                  // ),
+                                  // right: BorderSide(
+                                  //     color: Colors.brown
+                                  // ),
+                                ),
+                                image: DecorationImage(
+                                  image: AssetImage("assets/images/no_profile.png"),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
-                        ),
 
 
-                        const Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Text(
-                                "New Session",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Kalam",
+                          const Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "New Session",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Kalam",
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -160,47 +181,72 @@ class _LoginViewState extends State<LoginView> {
 
 
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                child: TextField(
-                  controller: _username,
-                  decoration: InputDecoration(
-                    labelText: 'Email or Username',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+              Card(
+                elevation: 15.0,
+                semanticContainer: true,
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      child: TextField(
+                        controller: _username,
+                        decoration: InputDecoration(
+                          labelText: 'Email or Username',
+                          contentPadding: EdgeInsets.fromLTRB(15, 5, 0, 10),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              style: BorderStyle.solid,
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                            ),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+
+
+
+
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                      child: TextField(
+                        controller: _password,
+                        obscureText: tap,
+                        decoration: InputDecoration(
+                          labelText: 'Password',
+                          // errorText: "Enter password with required data",
+                          hintStyle: const TextStyle(color: Colors.black),
+                          contentPadding: EdgeInsets.fromLTRB(15, 5, 0, 10),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              style: BorderStyle.solid,
+                              strokeAlign: BorderSide.strokeAlignInside,
+                            ),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                tap = !tap;
+                              });
+                            },
+                            child: tap ?
+                            const Icon(Icons.visibility)
+                                : const Icon(Icons.visibility_off),
+                          ),
+                        ),
+                        onChanged: (value) => {debugPrint("typed value -> $value")},
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
 
 
-
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                child: TextField(
-                  controller: _password,
-                  obscureText: tap,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    hintStyle: const TextStyle(color: Colors.black),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    suffixIcon: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tap = !tap;
-                        });
-                      },
-                      child: tap ?
-                      const Icon(Icons.visibility)
-                          : const Icon(Icons.visibility_off),
-                    ),
-                  ),
-                  onChanged: (value) => {debugPrint("typed value -> $value")},
-                ),
-              ),
 
 
               // https://api.flutter.dev/flutter/material/Checkbox-class.html
@@ -220,6 +266,27 @@ class _LoginViewState extends State<LoginView> {
                             : const Icon(Icons.check_box),
                       ),
                     ),
+
+
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            tap = !tap;
+                          });
+                        },
+                        child: const Text(
+                          "Show Password",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
 
                     // Checkbox(value: false, onChanged: (value){
@@ -242,25 +309,7 @@ class _LoginViewState extends State<LoginView> {
                     //   ),
                     // ),
 
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
-                      child: TextButton(
-                        style: ButtonStyle(
-                          foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            tap = !tap;
-                          });
-                        },
-                        child: const Text(
-                          "Show Password",
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
 
 
 
@@ -310,9 +359,9 @@ class _LoginViewState extends State<LoginView> {
               // ),
 
 
-              const SizedBox(
-                  height: 10.0
-              ),
+              // const SizedBox(
+              //     height: 0
+              // ),
 
 
 
@@ -336,13 +385,6 @@ class _LoginViewState extends State<LoginView> {
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context)=> Musicpage(
-                          name: _username.text,
-                        ),
-                      ),
-                    );
                     Navigator.of(context).push(
                       MaterialPageRoute(
                           builder: (context)=> Welcome2page(

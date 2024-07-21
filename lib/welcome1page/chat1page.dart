@@ -39,7 +39,7 @@ class _Chat1pageState extends State<Chat1page> {
               SizedBox(
                 height: 50,
               ),
-              SpinKitFadingCircle(
+              SpinKitCircle(
                 color: Colors.black,
                 size: 50,
               ),

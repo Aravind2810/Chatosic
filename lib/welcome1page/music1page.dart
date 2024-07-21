@@ -37,7 +37,7 @@ class _Music1pageState extends State<Music1page> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SpinKitFadingCircle(
+              SpinKitCircle(
                 color: Colors.black,
                 size: 50,
               ),
