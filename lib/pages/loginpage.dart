@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:chatosic/loginview.dart';
+import 'package:chatosic/pages/loginview.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, this.email});
