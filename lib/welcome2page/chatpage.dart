@@ -1,6 +1,8 @@
 import 'dart:convert';
-import 'package:chatosic/models/user.dart';
+import 'dart:io';
 import 'package:chatosic/pages/loginview.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -44,6 +46,8 @@ class _ChatpageState extends State<Chatpage> {
                 darkTheme: ThemeData.dark(),
 
                   home: Scaffold(
+
+                    backgroundColor: Colors.blue[800],
 
                     appBar: AppBar(
                       title: const Text(
@@ -147,76 +151,34 @@ class _ChatpageState extends State<Chatpage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
 
+                              TextField(
+                                decoration: InputDecoration(
+                                  border: UnderlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  hintText: "Search",
+                                  contentPadding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                                  suffixIcon: Icon(
+                                      Icons.search_rounded
+                                  ),
+                                ),
+                              ),
+
+
+
+
+
                             ],
                           ),
                         ),
                       ],
                     ),
 
-
-                    // body: ListView.builder(
-                    //   itemCount: users.length,
-                    //   itemBuilder: (context, index) {
-                    //     final user = users[index];
-                    //     // final name = user.name;
-                    //     final email = user.email;
-                    //     // final gender = user.gender;
-                    //     return ListTile(
-                    //       title: Text(email),
-                    //       // subtitle: Text(email),
-                    //     );
-                    //   },
-                    // ),
-                    //
-                    // floatingActionButton: FloatingActionButton(
-                    //   onPressed: fecUser,
-                    //   // child: Icon(
-                    //   //   Icons.add_comment_rounded,
-                    //   //   size: 25,
-                    //   // ),
-                    // ),
-
-
                   ),
-
               );
             }
         ),
     );
   }
-
-  // void fecUser() async{
-  //   print("Fetching");
-  //   const url = "https://randomuser.me/api/?results=20";
-  //   final uri = Uri.parse(url);
-  //   final response = await http.get(uri);
-  //   final body = response.body;
-  //   final json = jsonDecode(body);
-  //   final result = json['results'] as List<dynamic>;
-  //
-  //   // final transformed = result.map((e){
-  //   //   return User(
-  //   //     email: e['email'],
-  //   //     gender: e['gender'],
-  //   //     name: e['name'],
-  //   //   );
-  //   // }).toList();
-  //   // setState(() {
-  //   //   users = transformed;
-  //   // });
-  //
-  //   setState(() {
-  //     users = result.map((e){
-  //       return User(
-  //         email: e['email'],
-  //         name: e['name'],
-  //         gender: e['gender'],
-  //       );
-  //     }).toList();
-  //   });
-  //
-  //   print("Completed");
-  // }
-
 }
 
